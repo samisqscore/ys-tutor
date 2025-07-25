@@ -1,0 +1,71 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Distribution builds
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+logs/
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+.nyc_output
+
+# Electron builds
+out/
+*.app
+*.dmg
+*.exe
+*.zip
+*.tar.gz
+
+# macOS
+.AppleDouble
+.LSOverride
+
+# Windows
+*.lnk
+
+# Linux
+.fuse_hidden*
+
+# Temporary folders
+tmp/
+temp/
+
+# App specific
+.electron-builder-cache/

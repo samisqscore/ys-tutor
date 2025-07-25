@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Young-Scientist.in Math and Chemistry Tutor</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="brand-logo">
+                <img src="assets/ys_logo(2).png" alt="Young-Scientist.in" class="logo" id="brand-logo">
+                <div class="brand-text">
+                    <h1>Young-Scientist.in</h1>
+                    <p>Math and Chemistry Tutor for High School Grades 9-12</p>
+                </div>
+            </div>
+        </div>
+        <div class="model-selector">
+            <label for="model-select">AI Model:</label>
+            <select id="model-select">
+                <option value="">Loading models...</option>
+            </select>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="sidebar">
+            <div class="subject-tabs">
+                <button class="tab-btn active" data-subject="chemistry">
+                    <i class="fas fa-flask"></i> Chemistry
+                </button>
+                <button class="tab-btn" data-subject="math">
+                    <i class="fas fa-calculator"></i> Mathematics
+                </button>
+                <button class="tab-btn" data-subject="physics">
+                    <i class="fas fa-atom"></i> Physics
+                </button>
+            </div>
+            
+            <div class="quick-topics">
+                <h3>Quick Topics</h3>
+                <div class="topic-buttons" id="chemistry-topics">
+                    <button class="topic-btn" data-topic="atomic structure">Atomic Structure</button>
+                    <button class="topic-btn" data-topic="chemical bonding">Chemical Bonding</button>
+                    <button class="topic-btn" data-topic="acids and bases">Acids & Bases</button>
+                    <button class="topic-btn" data-topic="organic chemistry">Organic Chemistry</button>
+                    <button class="topic-btn" data-topic="periodic table">Periodic Table</button>
+                </div>
+                <div class="topic-buttons hidden" id="math-topics">
+                    <button class="topic-btn" data-topic="quadratic equations">Quadratic Equations</button>
+                    <button class="topic-btn" data-topic="trigonometry">Trigonometry</button>
+                    <button class="topic-btn" data-topic="calculus">Calculus</button>
+                    <button class="topic-btn" data-topic="coordinate geometry">Coordinate Geometry</button>
+                    <button class="topic-btn" data-topic="statistics">Statistics</button>
+                </div>
+                <div class="topic-buttons hidden" id="physics-topics">
+                    <button class="topic-btn" data-topic="mechanics">Mechanics</button>
+                    <button class="topic-btn" data-topic="thermodynamics">Thermodynamics</button>
+                    <button class="topic-btn" data-topic="optics">Optics</button>
+                    <button class="topic-btn" data-topic="electricity">Electricity</button>
+                    <button class="topic-btn" data-topic="waves">Waves</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-container">
+            <div class="chat-messages" id="chat-messages">
+                <div class="welcome-message">
+                    <h2>👋 Welcome to your Science Tutor!</h2>
+                    <p>I'm here to help you with Chemistry, Math, and Physics for high school grades 9-12.</p>
+                    <p>Ask me anything or click on a topic to get started!</p>
+                </div>
+            </div>
+            <div class="follow-up-container" id="follow-up-container"></div>
+            <div class="chat-input-container">
+                <div class="input-wrapper">
+                    <textarea 
+                        id="message-input" 
+                        placeholder="Ask me about chemistry, math, or physics concepts..."
+                        rows="3"
+                    ></textarea>
+                    <button id="send-btn" class="send-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="loading-overlay hidden" id="loading-overlay">
+        <div class="loading-spinner">
+            <i class="fas fa-atom fa-spin"></i>
+            <p>Thinking...</p>
+        </div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>

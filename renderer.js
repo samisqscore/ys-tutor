@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadingOverlay = document.getElementById('loading-overlay');
     const tabButtons = document.querySelectorAll('.tab-btn');
     const topicButtons = document.querySelectorAll('.topic-btn');
-    const followUpContainer = document.getElementById('follow-up-container');
+    const quizButton = document.getElementById('quiz-btn');
 
     const currentState = {
         selectedSubject: 'chemistry',
@@ -63,13 +63,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Quiz button event listener
+    quizButton.addEventListener('click', () => {
+        messageInput.value = `Start a quiz on ${currentState.selectedSubject}`;
+        sendMessage();
+    });
+
     async function sendMessage() {
         if (!messageInput.value.trim()) return;
 
         const userInput = messageInput.value.trim();
         addMessage(userInput, 'user');
         toggleLoading(true);
-        clearFollowUpOptions();
 
         // If this is a new question, generate a new contextId
         if (!currentState.contextId) {
@@ -88,9 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (response && response.success) {
             addMessage(response.response, 'ai');
-            if (response.followUp && response.options) {
-                showFollowUpOptions(response.options);
-            }
             messageInput.value = '';
         } else if (response.error === 'inappropriate_content') {
             addMessage(response.message, 'ai');
@@ -128,25 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
-    function showFollowUpOptions(options) {
-        clearFollowUpOptions();
-        options.forEach(option => {
-            const button = document.createElement('button');
-            button.classList.add('follow-up-btn');
-            button.textContent = option.text;
-            button.dataset.value = option.value;
-            button.addEventListener('click', () => {
-                // Use the option value for the actual message, but display the text
-                messageInput.value = option.value || option.text;
-                sendMessage();
-            });
-            followUpContainer.appendChild(button);
-        });
-    }
-
-    function clearFollowUpOptions() {
-        followUpContainer.innerHTML = '';
-    }
 
     function toggleLoading(show) {
         loadingOverlay.classList.toggle('hidden', !show);
@@ -158,7 +141,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         currentState.selectedSubject = event.currentTarget.dataset.subject;
         currentState.contextId = null; // Reset context on subject change
-        clearFollowUpOptions();
 
         document.querySelectorAll('.topic-buttons').forEach(div => div.classList.add('hidden'));
         document.getElementById(`${currentState.selectedSubject}-topics`).classList.remove('hidden');

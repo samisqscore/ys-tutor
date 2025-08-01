@@ -194,6 +194,16 @@ chemistry-tutor-app/
 - **Quiz Management**: Handles multi-question quiz sessions
 - **Practice Problems**: Generates and manages practice exercises
 
+## Recent Updates
+
+### Major Improvements
+- **Question-Answering**: Fixed mismatch by using current questions.
+- **Memory Management**: Added comprehensive memory management system.
+- **UI Simplification**: Removed confusing follow-up buttons, retained only 'Start Quiz'.
+- **Improved Context**: Enhanced prompts with detailed memory insights.
+- **Filtering**: Adjusted question filtering to prevent blocking legitimate queries.
+- **Frontend Cleanup**: Removed unnecessary code and fixed syntax errors.
+
 ## 🧪 Testing Guidelines
 
 ### ⚠️ **CRITICAL TESTING NEEDED**
